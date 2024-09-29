@@ -1,0 +1,24 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px;
+}
+
+.wall {
+    width: 800px;
+    height: 600px;
+    border: 2px solid #ccc;
+    margin-top: 20px;
+    background-size: cover;
+    background-position: center;
+    position: relative; /* Ensure the stickers are positioned relative to the wall */
+}
+
+.sticker {
+    width: 100px; /* Adjust the size as needed */
+    height: 100px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute; /* Position stickers relative to the wall */
+}
