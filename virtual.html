@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Room Painting</title>
+    <style>
+        #canvas-container {
+            position: relative;
+        }
+
+        #roomCanvas {
+            border: 10px solid #636262;
+        }
+
+        .paint-button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        h1 {
+            text-align: center;
+            color: orange;
+        }
+    </style>
+</head>
+<body>
+    <h1>Virtual Room Painting</h1>
+
+    <input type="file" id="imageInput" accept="image/*">
+    <input type="color" id="colorInput" value="#000000">
+    <button class="paint-button" onclick="startPainting()">Start Painting</button>
+    <button class="paint-button" onclick="clearCanvas()">Clear Canvas</button>
+
+    <label for="brushSize">Brush Size: </label>
+    <input type="range" id="brushSize" min="1" max="30" value="10" onchange="updateBrushSize(this.value)">
+    <span id="brushSizeValue">10</span>
+
+
+    <div id="canvas-container">
+        <canvas id="roomCanvas" width="800" height="600"></canvas>
+    </div>
+
+    <script>
+        let painting = false;
+        let brushSize = 10; // Initial brush size
+    
+        function startPainting() {
+            painting = !painting;
+        }
+    
+        function paintRoom(event) {
+            if (painting) {
+                const color = document.getElementById('colorInput').value;
+                const canvas = document.getElementById('roomCanvas');
+                const context = canvas.getContext('2d');
+    
+                const x = event.clientX - canvas.offsetLeft;
+                const y = event.clientY - canvas.offsetTop;
+    
+                context.fillStyle = color;
+    
+                // Draw a circle to simulate a brush
+                context.beginPath();
+                context.arc(x, y, brushSize / 2, 0, 2 * Math.PI);
+                context.fill();
+                context.closePath();
+            }
+        }
+    
+        function clearCanvas() {
+            const canvas = document.getElementById('roomCanvas');
+            const context = canvas.getContext('2d');
+            context.clearRect(0, 0, canvas.width, canvas.height);
+        }
+    
+        function handleImageUpload(event) {
+            const canvas = document.getElementById('roomCanvas');
+            const context = canvas.getContext('2d');
+    
+            const image = new Image();
+            image.src = URL.createObjectURL(event.target.files[0]);
+    
+            image.onload = function () {
+                context.drawImage(image, 0, 0, canvas.width, canvas.height);
+            };
+        }
+    
+        // Update brush size dynamically
+        function updateBrushSize(size) {
+            brushSize = size;
+            document.getElementById('brushSizeValue').innerText = brushSize;
+        }
+    
+        document.getElementById('imageInput').addEventListener('change', handleImageUpload);
+        document.getElementById('roomCanvas').addEventListener('mousemove', paintRoom);
+    </script>
+    
+</body>
+</html>

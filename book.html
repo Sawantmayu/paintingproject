@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Booking Form</title>
+  <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+    
+    <div class="bg">
+        <div class="booking-form">
+            <h2>Book Service</h2>
+            <form action="book.php" method="post">
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" required>
+ 
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" required>
+           
+                <label for="address">Address</label>
+                <input type="text" name="address" id="address" required>
+           
+                <label for="date"> Date:</label>
+                <input type="date" name="date" id="date" required >
+               
+                <label for="time">Time:</label>
+                <input type="time" name="time" id="time" required>
+
+                <button type="submit">Book Now</button>
+            </form>
+       
+        </div>
+    </div>
+</body>
+</html>

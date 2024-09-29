@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style1.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Catalog</title>
+    <style>
+       
+        .color-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .color-box {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .color-box:hover {
+            transform: scale(1.1);
+        }
+
+        .color-name {
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+  
+         </div>
+        <h1>Color Catalog</h1>
+    
+
+    <div class="color-container">
+        <a href="red.html" class="color-box" style="background-color: #ff0000;">
+            <div class="color-name">Red</div>
+        </a>
+        <a href="blue.html" class="color-box" style="background-color: #4407fd;">
+            <div class="color-name">Blue</div>
+        </a>
+
+        <a href="yellow.html" class="color-box" style="background-color: #f9f926;">
+            <div class="color-name">Yellow</div>
+        </a>
+        
+        <a href="green.html" class="color-box" style="background-color: #31ff3b;">
+            <div class="color-name">Green</div>
+        </a>
+    </div>
+
+</body>
+</html>
